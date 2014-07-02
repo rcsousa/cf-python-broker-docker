@@ -46,6 +46,7 @@ def service_instances():
                 raise HTTP(410, "Gone")
                 response = {}
                 return response
+    #if id[1] == "service_instances":
     if len(id) > 1:
         if request.env.request_method == "PUT":
             list = []

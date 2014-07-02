@@ -46,7 +46,8 @@ def service_instances():
                 raise HTTP(410, "Gone")
                 response = {}
                 return response
-    if len(id) > 1:
+    if id[1] == "service_instances":
+    #if len(id) > 1:
         if request.env.request_method == "PUT":
             list = []
             containers_l = c.containers()
@@ -57,7 +58,7 @@ def service_instances():
                 if y['Config']['Hostname'] == host:
                     IpAddr = y['NetworkSettings']['IPAddress']
                     Port = y['NetworkSettings']['Ports']
-            response = {"credentials": {"uri": url,"username": "admin" ,"password": password,"host": IpAddr,"port": Port}}
+            response = {"credentials": {"username": "admin" ,"password": password,"host": IpAddr,"port": Port}}
             return response
         if request.env.request_method == "DELETE":
             response = {}
